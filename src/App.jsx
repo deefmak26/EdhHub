@@ -1,4 +1,5 @@
 import React from 'react'
+import './index.css'
 import { 
   BookOpen, 
   Library, 
@@ -13,7 +14,7 @@ import {
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0f172a] text-slate-100 font-sans text-right" dir="rtl" style={{backgroundColor: '#050a15', color: '#e2e8f0'}}>
+    <div className="min-h-screen text-slate-100 font-sans text-right" dir="rtl" style={{backgroundColor: '#050a15', color: '#e2e8f0'}}>
       
       {/* Header */}
       <nav className="flex justify-between items-center p-4 border-b border-slate-800 bg-[#0f172a]/80 backdrop-blur-md sticky top-0 z-50">
@@ -70,4 +71,3 @@ function App() {
 }
 
 export default App
-
