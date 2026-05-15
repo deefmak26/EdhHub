@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Search, PlusCircle, BookOpen, User, Library, PlayCircle, Mic2, ClipboardCheck, Gamepad2 } from 'lucide-react';
+import { Search, PlusCircle, BookOpen, User, Library, PlayCircle, Mic2, ClipboardCheck, Gamepad2 } from 'lucide-react';
 
 export default function App() {
   const categories = [
@@ -12,81 +12,36 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050a15] text-slate-100 font-sans selection:bg-blue-500/30 overflow-x-hidden" dir="rtl">
-      
-      {/* 1. القائمة العلوية */}
-      <nav className="border-b border-slate-800 bg-[#0f172a]/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="text-2xl font-black italic tracking-tighter text-blue-500">
-              Edu<span className="text-white">Hub</span>
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-3">
-            <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2">
-              <PlusCircle size={16} />
-              <span className="hidden sm:inline">رفع ملف</span>
-            </button>
-            <div className="w-9 h-9 bg-slate-800 border border-slate-700 rounded-full flex items-center justify-center text-blue-500 font-bold">
-              <User size={18} />
-            </div>
-          </div>
+    <div className="min-h-screen text-slate-100 font-sans pb-20">
+      <nav className="h-20 flex items-center justify-between border-b border-white/5 mb-10">
+        <div className="text-2xl font-black italic text-blue-500">EduHub <span className="text-white text-sm">v2</span></div>
+        <div className="flex items-center gap-3">
+          <button className="bg-blue-600 p-2 rounded-lg"><PlusCircle size={20}/></button>
+          <div className="w-10 h-10 bg-slate-800 rounded-full border border-blue-500/30 flex items-center justify-center font-bold">ع</div>
         </div>
       </nav>
 
-      {/* 2. الحاوية الرئيسية للمحتوى */}
-      <main className="max-w-5xl mx-auto px-5 pt-12 pb-20">
-        
-        {/* واجهة الترحيب */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-[10px] font-black mb-8 border border-blue-500/20 tracking-widest">
-            <BookOpen size={12} />
-            <span>جامعة المحويت - كلية الطب</span>
-          </div>
-          
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-            مركز التعليم <span className="text-blue-500 underline decoration-blue-800/50 underline-offset-8">الذكي</span>
-          </h1>
-          
-          <p className="text-slate-400 text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed opacity-80">
-            منصة شاملة للملفات الطبية والمحاضرات التفاعلية المخصصة لطلابنا.
-          </p>
-
-          {/* 3. شريط البحث المطور - مع حماية من الالتصاق */}
-          <div className="max-w-2xl mx-auto px-1">
-            <div className="flex items-center bg-slate-900/80 border border-slate-800 p-1.5 rounded-2xl focus-within:border-blue-500 focus-within:ring-4 focus-within:ring-blue-500/10 transition-all shadow-2xl">
-              <div className="pr-4 pl-2 text-slate-500">
-                <Search size={20} />
-              </div>
-              <input 
-                type="text" 
-                placeholder="ابحث عن محاضرات أو مراجع..." 
-                className="w-full bg-transparent border-none outline-none text-white text-sm py-3 px-2 text-right placeholder:text-slate-600"
-              />
-            </div>
-          </div>
+      <main>
+        <div className="text-center mb-12">
+           <h1 className="text-4xl font-black mb-4">مركز التعليم <span className="text-blue-500">الذكي</span></h1>
+           <p className="text-slate-400 text-sm px-10">منصة شاملة للملفات الطبية والمحاضرات التفاعلية</p>
         </div>
 
-        {/* 4. شبكة الأقسام */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-2 mb-12 flex items-center">
+          <Search className="text-slate-500 mx-3" size={20} />
+          <input type="text" placeholder="ابحث هنا..." className="bg-transparent border-none outline-none text-white w-full text-right py-2" />
+        </div>
+
+        <div className="grid grid-cols-2 gap-4">
           {categories.map((item, index) => (
-            <div key={index} className="group bg-slate-900/40 p-6 rounded-[2.5rem] border border-slate-800 hover:border-blue-500/40 hover:bg-slate-800/40 transition-all duration-300 text-center flex flex-col items-center justify-center gap-3 shadow-lg">
-              <div className="bg-slate-800 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300 border border-slate-700">
-                {item.icon}
-              </div>
-              <h3 className="text-sm md:text-base font-bold text-white">{item.title}</h3>
-              <p className="text-slate-500 text-[10px] leading-relaxed opacity-70">{item.desc}</p>
+            <div key={index} className="bg-[#0f172a] p-6 rounded-[2rem] border border-slate-800 text-center flex flex-col items-center gap-3">
+              <div className="bg-slate-800 p-3 rounded-xl">{item.icon}</div>
+              <h3 className="font-bold text-sm">{item.title}</h3>
+              <p className="text-[10px] text-slate-500">{item.desc}</p>
             </div>
           ))}
         </div>
-
       </main>
-
-      {/* 5. تذييل الصفحة */}
-      <footer className="py-12 border-t border-slate-900/50 text-center text-slate-600 text-[10px]">
-        <p>© 2026 EdhHub - صُنع لطلاب العلم في اليمن</p>
-      </footer>
     </div>
   );
 }
