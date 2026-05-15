@@ -1,73 +1,64 @@
-import React from 'react'
-import './index.css'
-import { 
-  BookOpen, 
-  Library, 
-  PlayCircle, 
-  Mic2, 
-  ClipboardCheck, 
-  Gamepad2, 
-  Search, 
-  PlusCircle,
-  Menu
-} from 'lucide-react'
+import React from 'react';
+import { Menu, Bell, Search, PlusCircle, BookOpen, User } from 'lucide-react';
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen text-slate-100 font-sans text-right" dir="rtl" style={{backgroundColor: '#050a15', color: '#e2e8f0'}}>
+    <div className="min-h-screen bg-[#050a15] text-white font-sans selection:bg-blue-500/30" dir="rtl">
       
-      {/* Header */}
-      <nav className="flex justify-between items-center p-4 border-b border-slate-800 bg-[#0f172a]/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="text-2xl font-black text-blue-500 tracking-tighter">EdhHub</div>
-        <div className="flex gap-3" dir="ltr">
-          <button style={{backgroundColor: '#2563eb', color: 'white', padding: '8px 16px', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: 'bold'}}>
-             <PlusCircle size={18} /> رفع محتوى
-          </button>
-          <button style={{border: '1px solid #334155', padding: '8px', borderRadius: '10px'}}><Menu size={20}/></button>
+      {/* القائمة العلوية */}
+      <nav className="border-b border-slate-800 bg-[#0f172a]/80 backdrop-blur-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="text-2xl font-black italic tracking-tighter text-blue-500">
+              Edu<span className="text-white">Hub</span>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-4">
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-blue-500 transition-all flex items-center gap-2">
+              <PlusCircle size={18} />
+              <span className="hidden sm:inline">رفع ملف</span>
+            </button>
+            <div className="w-10 h-10 bg-slate-800 border border-slate-700 rounded-full flex items-center justify-center text-blue-500 font-bold border-2 border-blue-500/20">
+              <User size={20} />
+            </div>
+          </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <header className="py-12 px-6 text-center">
-        <h1 className="text-4xl font-black mb-4 leading-tight">مركز التعليم <span className="text-blue-500 underline decoration-blue-800">الذكي</span></h1>
-        <p className="text-slate-400 text-sm mb-8">منصة شاملة للملفات الطبية والمحاضرات التفاعلية</p>
-        
-        <div className="max-w-md mx-auto relative">
-          <input 
-            type="text" 
-            placeholder="ابحث عن محاضرات، كتب، أو مراجع..." 
-            style={{width: '100%', padding: '16px 45px 16px 20px', borderRadius: '16px', backgroundColor: '#1e293b', border: '1px solid #334155', color: 'white', textAlign: 'right', outline: 'none'}}
-          />
-          <Search className="absolute right-4 top-4 text-slate-500" size={20} />
+      {/* واجهة الترحيب والبحث */}
+      <main className="max-w-5xl mx-auto px-6 pt-20 pb-12 text-center">
+        <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-xs font-bold mb-6 border border-blue-500/20">
+          <BookOpen size={14} />
+          <span>منصة طلاب الطب - جامعة المحويت</span>
         </div>
-      </header>
+        
+        <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
+          كل ما تحتاجه في رحلتك <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-l from-blue-400 to-blue-600">الطبية في مكان واحد</span>
+        </h1>
+        
+        <p className="text-slate-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+          وصول سريع للمحاضرات، الملخصات، والمراجع الطبية الموثوقة. ابحث الآن وابدأ التعلم.
+        </p>
 
-      {/* Categories Grid */}
-      <main className="max-w-6xl mx-auto p-4" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px'}}>
-        {[
-          { title: 'الدراسة', desc: 'محاضرات وملخصات', icon: <BookOpen className="text-blue-400" /> },
-          { title: 'المكتبة', desc: 'كتب ومراجع PDF', icon: <Library className="text-purple-400" /> },
-          { title: 'الفيديوهات', desc: 'شروحات مرئية', icon: <PlayCircle className="text-red-400" /> },
-          { title: 'الصوتيات', desc: 'محاضرات مسموعة', icon: <Mic2 className="text-green-400" /> },
-          { title: 'الاختبارات', desc: 'بنك الأسئلة', icon: <ClipboardCheck className="text-yellow-400" /> },
-          { title: 'الترفيه', desc: 'معلومات منوعة', icon: <Gamepad2 className="text-pink-400" /> },
-        ].map((item, index) => (
-          <div key={index} style={{backgroundColor: '#111827', padding: '20px', borderRadius: '24px', border: '1px solid #1e293b', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px'}}>
-            <div style={{backgroundColor: '#1e293b', padding: '12px', borderRadius: '16px'}}>
-              {item.icon}
+        <div className="relative max-w-2xl mx-auto">
+          <div className="flex items-center bg-slate-900 border border-slate-800 p-2 rounded-2xl shadow-2xl focus-within:border-blue-500 transition-all">
+            <div className="p-3 text-slate-500">
+              <Search size={24} />
             </div>
-            <h3 className="text-lg font-bold">{item.title}</h3>
-            <p className="text-slate-500 text-[10px]">{item.desc}</p>
+            <input 
+              type="text" 
+              placeholder="ابحث عن تشريح، كيمياء حيوية، ملخصات..." 
+              className="w-full bg-transparent border-none outline-none text-white text-lg px-2 text-right placeholder:text-slate-600"
+            />
           </div>
-        ))}
+        </div>
       </main>
 
-      {/* Footer */}
-      <footer className="mt-10 p-6 text-center text-slate-600 text-[12px]">
-        <p>© 2026 EdhHub - صنع بكل فخر لطلاب العلم</p>
+      <footer className="fixed bottom-0 w-full p-6 text-center text-slate-600 text-[10px]">
+        © 2026 EdhHub - مستقبل التعليم الطبي
       </footer>
     </div>
-  )
+  );
 }
-
-export default App
