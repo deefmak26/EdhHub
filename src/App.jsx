@@ -14,9 +14,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#050a15] text-slate-100 font-sans selection:bg-blue-500/30" dir="rtl">
       
-      {/* 1. القائمة العلوية - مع إضافة مساحة جانبية px-4 */}
+      {/* 1. القائمة العلوية */}
       <nav className="border-b border-slate-800 bg-[#0f172a]/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="text-2xl font-black italic tracking-tighter text-blue-500">
               Edu<span className="text-white">Hub</span>
@@ -35,8 +35,8 @@ export default function App() {
         </div>
       </nav>
 
-      {/* 2. واجهة الترحيب - مع ضمان عدم التصاق المحتوى بالحواف */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      {/* 2. واجهة الترحيب */}
+      <main className="max-w-7xl mx-auto px-6 pt-16 pb-12">
         
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-[10px] font-black mb-6 border border-blue-500/20 uppercase tracking-widest">
@@ -44,16 +44,16 @@ export default function App() {
             <span>جامعة المحويت - كلية الطب</span>
           </div>
           
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight px-2">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
             مركز التعليم <span className="text-blue-500 underline decoration-blue-800/50 underline-offset-8">الذكي</span>
           </h1>
           
-          <p className="text-slate-400 text-sm md:text-base mb-10 max-w-2xl mx-auto leading-relaxed px-4">
+          <p className="text-slate-400 text-sm md:text-base mb-10 max-w-2xl mx-auto leading-relaxed">
             منصة شاملة للملفات الطبية والمحاضرات التفاعلية المخصصة لطلابنا.
           </p>
 
-          {/* 3. شريط البحث المصلح - تم حل مشكلة القص من اليمين */}
-          <div className="relative max-w-2xl mx-auto px-2">
+          {/* 3. شريط البحث */}
+          <div className="relative max-w-2xl mx-auto">
             <div className="relative flex items-center bg-slate-900/50 border border-slate-800 p-1.5 rounded-2xl focus-within:border-blue-500 focus-within:ring-4 focus-within:ring-blue-500/10 transition-all">
               <div className="pr-4 pl-2 text-slate-500">
                 <Search size={22} />
@@ -67,8 +67,8 @@ export default function App() {
           </div>
         </div>
 
-        {/* 4. شبكة الأقسام - تم توزيعها بمسافات متزنة */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-16 px-2">
+        {/* 4. شبكة الأقسام - بدون px-2 زائد */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-16">
           {categories.map((item, index) => (
             <div key={index} className="group bg-slate-900/40 p-6 rounded-[2rem] border border-slate-800 hover:border-blue-500/50 hover:bg-slate-800/40 transition-all duration-300 text-center flex flex-col items-center justify-center gap-3 cursor-pointer shadow-xl">
               <div className="bg-slate-800 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300 shadow-inner border border-slate-700">
